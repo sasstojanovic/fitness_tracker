@@ -43,26 +43,38 @@ body {
     font-size: 34px;
     font-weight: bold;
     margin-bottom: 10px;
+    word-wrap: break-word;
 }
 
 #header-description {
     color: #898694;
     font-size: 16px;
     font-weight: 600;
+    word-wrap: break-word;
+}
+
+#days-container {
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .one-day-container {
     background-color: rgba(255,255,255,0.25);
     max-width: 60px;
     border-radius: 23px;
-    margin-top: 30px;
     display: inline-block;
     margin-right: 5px;
     margin-left: 5px;
+    margin-bottom:15px;
 }
 
 .one-day-container:hover {
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.one-day-container:hover .one-day-content{
+    color:rgba(0, 182, 163, 1)
 }
 
 .one-day-container:last-child {
@@ -78,8 +90,62 @@ body {
     font-weight: 600;
 }
 
-#activity-container {
+.action-panel {
     max-width: 340px;
     background-color: rgba(255,255,255,0.25);
     border-radius: 28px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.action-info > div {
+    display: inline-block;
+}
+
+.icon-container {
+    color: white;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.25);
+    border-radius: 23px;
+    top: 3px;
+    position: relative;
+    margin-right: 15px;
+}
+
+.icon-container > i {
+    padding: 8px;
+    position: absolute;
+}
+
+.action-title {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.action-description {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+}
+
+#activity-value {
+    font-size: 38px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin-left: 55px;
+    margin-bottom: 26px;
+    margin-top: 26px;
+}
+
+#steps-container .action-info, #calories-container .action-info{
+    display: inline-block;
+}
+
+.action-value {
+    font-size: 38px;
+color: rgb(255, 255, 255);
+font-weight: bold;
+float: right;
 }
