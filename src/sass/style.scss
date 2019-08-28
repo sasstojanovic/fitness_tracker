@@ -22,6 +22,14 @@ body {
     background-repeat: no-repeat;
 }
 
+.hidden {
+    animation-name: hideView;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    display: none;
+}
+
 #container {
     max-width: 375px;
     margin: auto;
@@ -30,7 +38,23 @@ body {
     padding-bottom: 0px;
 }
 
-#header-container {
+.week-review, .day-review {
+    animation-name: showView;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes showView {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes hideView {
+    from { opacity: 1; }
+    to   { opacity: 0; display: none;}
+}
+
+#week-review-header {
     max-width: 340px;
     background-color: #FFFFFF;
     border-radius: 28px;
@@ -38,7 +62,15 @@ body {
     padding-right: 0px;
 }
 
-#header-message {
+#day-review-header {
+    max-width: 340px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 28px;
+    padding: 24px 27px;
+    padding-right: 0px;
+}
+
+#week-review-header .header-message {
     color: #00B6A3;
     font-size: 34px;
     font-weight: bold;
@@ -46,11 +78,53 @@ body {
     word-wrap: break-word;
 }
 
-#header-description {
+#week-review-header .header-description {
     color: #898694;
     font-size: 16px;
     font-weight: 600;
     word-wrap: break-word;
+}
+
+#day-review-header .header-message {
+    color: rgba(255, 255, 255, 1);
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+#day-review-header .header-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+#day-review-header > div {
+    display: inline-block;
+}
+
+.header-back {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    top: -10px;
+    left: -15px;
+    border-radius: 50%;
+}
+
+.header-back:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.header-back:hover i {
+    color: rgba(0, 182, 163, 1)
+}
+
+.header-back i {
+    font-size: 40px;
+    color: rgb(255, 255, 255);
 }
 
 #days-container {
@@ -145,7 +219,106 @@ body {
 
 .action-value {
     font-size: 38px;
-color: rgb(255, 255, 255);
-font-weight: bold;
-float: right;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    float: right;
+}
+
+#day-activity-container {
+    max-width: 340px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 28px 28px 0px 0px;
+    padding: 24px 27px;
+}
+
+#day-steps-container {
+    width: 231px;
+    height: 231px;
+    border: 8px solid rgb(0, 182, 163);
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin: 0 auto;
+    padding: 18px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+#day-steps-wrapper > div {
+    margin: auto;
+    text-align: center;
+}
+
+#day-steps-icon {
+    background-color: rgba(0, 182, 163, 0.25);
+}
+
+#day-steps-icon i {
+    color: rgb(255, 255, 255);
+    position: static;
+}
+
+#day-steps-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(21, 28, 31, 1);
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+#day-steps-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(21, 28, 31, 1);
+}
+
+#day-review-progress-message {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(21, 28, 31, 1);
+    text-align: center;
+}
+
+#day-review-motivation-message {
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(21, 28, 31, 1);
+    text-align: center;
+}
+
+#day-review-details {
+    margin-top: 85px;
+}
+
+#day-review-details .day-review-details-wrapper:last-child {
+    border-right: none;
+}
+
+.day-review-details-wrapper {
+    width: 32%;
+    display: inline-block;
+    min-width: 100px;
+    min-height: 75px;
+    border-right: 1px solid rgb(235, 235, 235);
+    position: relative;
+}
+
+.day-review-details-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(179, 179, 179, 1);
+    text-align: center;
+}
+
+.day-review-details-value {
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(0, 182, 163, 1);
+    text-align: center;
+}
+
+.day-review-details-container {
+    bottom: 0px;
+    position: absolute;
+    margin: auto;
+    width: 100%;
 }

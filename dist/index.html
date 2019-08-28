@@ -9,12 +9,24 @@
 </head>
 
 <body>
-
     <div id="container">
-        <div id="header-container">
-            <div id="header-message">Welcome!</div>
-            <div id="header-description">Overview of your activity</div>
+        <div id="week-review-header" class="week-review">
+            <div class="header-content">
+                <div class="header-message">Welcome!</div>
+                <div class="header-description">Overview of your activity</div>
+            </div>
         </div>
+
+        <div id="day-review-header" class="day-review hidden">
+            <div class="header-back">
+                <i class="material-icons">chevron_left</i>
+            </div>
+            <div class="header-content">
+                <div class="header-message">Tuesday</div>
+                <div class="header-description">June 21, 2019.</div>
+            </div>
+        </div>
+
         <div id="days-container">
             <div class="one-day-container">
                 <div class="one-day-content">4 MON</div>
@@ -32,44 +44,82 @@
                 <div class="one-day-content">8 FRI</div>
             </div>
         </div>
-        <div id="activity-container" class="action-panel">
-            <div class="action-info">
-                <div class="icon-container"><i class="material-icons">timer</i></div>
-                <div>
-                    <div class="action-title">Activity</div>
-                    <div class="action-description">Average</div>
+
+        <div class="week-review">
+            <div id="activity-container" class="action-panel">
+                <div class="action-info">
+                    <div class="icon-container"><i class="material-icons">timer</i></div>
+                    <div>
+                        <div class="action-title">Activity</div>
+                        <div class="action-description">Average</div>
+                    </div>
+                </div>
+                <div id="activity-value">
+                    6h 40min
                 </div>
             </div>
-            <div id="activity-value">
-                6h 40min
+            <div id="steps-container" class="action-panel">
+                <div class="action-info">
+                    <div class="icon-container"><i class="material-icons">directions_run</i></div>
+                    <div>
+                        <div class="action-title">Steps</div>
+                        <div class="action-description">Total</div>
+                    </div>
+                </div>
+                <div class="action-value">
+                    7,540
+                </div>
+            </div>
+            <div id="calories-container" class="action-panel">
+                <div class="action-info">
+                    <div class="icon-container"><i class="material-icons">whatshot</i></div>
+                    <div>
+                        <div class="action-title">Calories</div>
+                        <div class="action-description">Total Burned</div>
+                    </div>
+                </div>
+                <div class="action-value">
+                    340
+                </div>
             </div>
         </div>
-        <div id="steps-container" class="action-panel">
-            <div class="action-info">
-                <div class="icon-container"><i class="material-icons">directions_run</i></div>
-                <div>
-                    <div class="action-title">Steps</div>
-                    <div class="action-description">Total</div>
+
+        <div class="day-review hidden">
+            <div id="day-activity-container">
+                <div id="day-steps-container">
+                    <div id="day-steps-wrapper">
+                        <div id="day-steps-icon" class="icon-container">
+                            <i class="material-icons">directions_run</i>
+                        </div>
+                        <div id="day-steps-title">Steps</div>
+                        <div id="day-steps-value">7,542</div>
+                    </div>
                 </div>
-            </div>
-            <div class="action-value">
-                7,540
-            </div>
-        </div>
-        <div id="calories-container" class="action-panel">
-            <div class="action-info">
-                <div class="icon-container"><i class="material-icons">whatshot</i></div>
-                <div>
-                    <div class="action-title">Calories</div>
-                    <div class="action-description">Total Burned</div>
+                <div id="day-review-progress-message">Very good</div>
+                <div id="day-review-motivation-message">Keep going!</div>
+                <div id="day-review-details">
+                    <div class="day-review-details-wrapper">
+                        <div class="day-review-details-container">
+                            <div class="day-review-details-title">km</div>
+                            <div class="day-review-details-value">4.2</div>
+                        </div>
+                    </div>
+                    <div class="day-review-details-wrapper">
+                        <div class="day-review-details-container">
+                            <div class="day-review-details-title">cal</div>
+                            <div class="day-review-details-value">315</div>
+                        </div>
+                    </div>
+                    <div class="day-review-details-wrapper">
+                        <div class="day-review-details-container">
+                            <div class="day-review-details-title">hours</div>
+                            <div class="day-review-details-value">4</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="action-value">
-                340
             </div>
         </div>
     </div>
-
 
     <script src="js/index.bundle.js"></script>
 </body>
