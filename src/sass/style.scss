@@ -38,7 +38,7 @@ body {
     padding-bottom: 0px;
 }
 
-.week-review, .day-review {
+.week-review, .day-review, .one-day-container {
     animation-name: showView;
     animation-duration: 0.3s;
     animation-timing-function: ease-out;
@@ -60,6 +60,7 @@ body {
     border-radius: 28px;
     padding: 24px 27px;
     padding-right: 0px;
+    width: 313px;
 }
 
 #day-review-header {
@@ -68,6 +69,7 @@ body {
     border-radius: 28px;
     padding: 24px 27px;
     padding-right: 0px;
+    width: 313px;
 }
 
 #week-review-header .header-message {
@@ -140,6 +142,8 @@ body {
     margin-right: 5px;
     margin-left: 5px;
     margin-bottom:15px;
+    width: 60px;
+    height: 60px;
 }
 
 .one-day-container:hover {
@@ -153,6 +157,10 @@ body {
 
 .one-day-container:last-child {
     margin-right: 0px;
+}
+
+.one-day-container:first-child {
+    margin-left: 0px;
 }
 
 .one-day-content {
@@ -170,6 +178,7 @@ body {
     border-radius: 28px;
     padding: 20px;
     margin-bottom: 15px;
+    width: 300px;
 }
 
 .action-info > div {
@@ -228,7 +237,8 @@ body {
     max-width: 340px;
     background-color: rgba(255, 255, 255, 1);
     border-radius: 28px 28px 0px 0px;
-    padding: 24px 27px;
+    padding: 24px 0px 24px 0px;
+    width: 340px;
 }
 
 #day-steps-container {
