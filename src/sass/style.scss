@@ -148,12 +148,19 @@ body {
 
 .one-day-container:hover {
     cursor: pointer;
+}
+/*
+.one-day-container:hover .one-day-content {
+    color:rgba(0, 182, 163, 1);
+}
+*/
+.one-day-container .one-day-content.active {
+    color:rgba(0, 182, 163, 1);
     background-color: rgba(255, 255, 255, 1);
+    opacity: 1;
+    cursor: default;
 }
 
-.one-day-container:hover .one-day-content{
-    color:rgba(0, 182, 163, 1)
-}
 
 .one-day-container:last-child {
     margin-right: 0px;
@@ -170,6 +177,7 @@ body {
     padding: 11px;
     text-align: center;
     font-weight: 600;
+    border-radius: 23px;
 }
 
 .action-panel {

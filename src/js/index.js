@@ -7,6 +7,36 @@ var APP_CONFIG = {
     oneStepTime: 0.5
 }
 
+var utilities = {
+    getNumberWithCommas: function (thisNumber) {
+        var result = null;
+        if (thisNumber) {
+            result = thisNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        return result;
+    },
+    getFormatedDate: function (epochValue) {
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+        var thisDate = new Date(epochValue);
+        var thisMonthDay = thisDate.getDate();
+        var thisMonthName = monthNames[thisDate.getMonth()];
+        var thisYear = thisDate.getFullYear();
+
+        return thisMonthName + " " + thisMonthDay + ", " + thisYear + ".";
+    },
+    getDayName: function (epochValue, isShortName) {
+        var thisDate = new Date(epochValue);
+        var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var dayName = weekdays[thisDate.getDay()];
+
+        if (isShortName) {
+
+        }
+
+        return dayName;
+    }
+}
+
 var dataStorage = {};
 
 var views = {
@@ -65,22 +95,50 @@ function changeView(view) {
     }
 }
 
+function resetSelectedDay() {
+    var daysElements = document.querySelectorAll("#days-container .one-day-container .one-day-content");
+
+    daysElements.forEach(function (thisItem) {
+        thisItem.classList.remove("active");
+    });
+}
+
 var eventListeners = {
     backToWeekReview: function () {
         console.log("backToWeekReview");
+        resetSelectedDay();
         changeView(views.week);
     },
     goToDayReview: function (e) {
+        //resetSelectedDay();
         console.log("goToDayReview");
         if (e.target) {
-            if (e.target.classList.contains("one-day-content")) {
-                //TODO
+            /*
+            if (e.target.classList.contains("one-day-container")) {
                 console.log("Class name: " + e.target.className);
-                changeView(views.day);
-                /*
-                document.getElementsByClassName("week-review").display = "none";
-                document.getElementsByClassName("day-review").display = "block";
-                */
+                e.target.classList.add("active");
+            }
+            */
+            if (e.target.classList.contains("one-day-content")) {
+                var selectedDate = e.target.dataset.date;
+                console.log("Selected date: " + selectedDate);
+
+                if (e.target.classList.contains("active")) {
+                    return;
+                } else {
+                    resetSelectedDay();
+                    e.target.classList.add("active");
+                    //TODO
+                    console.log("Class name: " + e.target.className);
+                    changeView(views.day);
+                    setDayReview(selectedDate);
+                    /*
+                    document.getElementsByClassName("week-review").display = "none";
+                    document.getElementsByClassName("day-review").display = "block";
+                    */
+                }
+
+
             }
         }
     }
@@ -91,7 +149,21 @@ function initEvents() {
     document.getElementById("days-container").addEventListener('click', eventListeners.goToDayReview);
 }
 
-function setWeekAverageActivity(sortedDays) {
+function setDayReview(selectedDate) {
+    var thisDaySteps = dataStorage[selectedDate].steps;
+    var thisDayKm = (thisDaySteps * APP_CONFIG.oneStepDistance / 1000).toFixed(1);
+    var thisDayCaloriesBurned = Math.floor(thisDaySteps * APP_CONFIG.oneStepBurnsCal);
+    var thisDayActiveTime = thisDaySteps * APP_CONFIG.oneStepTime / 3600;
+
+    document.getElementById("day-steps-value").innerHTML = utilities.getNumberWithCommas(thisDaySteps);
+    document.getElementById("day-review-distance-value").innerHTML = thisDayKm;
+    document.getElementById("day-review-calories-value").innerHTML = thisDayCaloriesBurned;
+    document.getElementById("day-review-time-value").innerHTML = parseFloat(Math.round(thisDayActiveTime * 100) / 100).toFixed(2);
+    document.getElementById("day-review-date").innerHTML = utilities.getFormatedDate(dataStorage[selectedDate].epochDate);
+    document.getElementById("day-review-week-day-name").innerHTML = utilities.getDayName(dataStorage[selectedDate].epochDate);
+}
+
+function setWeekReview(sortedDays) {
     var totalSteps = 0;
     var totalSeconds = 0;
     var totalCalories = 0;
@@ -100,13 +172,13 @@ function setWeekAverageActivity(sortedDays) {
         totalSteps += dataStorage[sortedDays[i]].steps;
     }
 
-    totalSeconds = totalSteps * APP_CONFIG.oneStepTime;
+    totalSeconds = totalSteps * APP_CONFIG.oneStepTime / APP_CONFIG.daysToShow;
     var hours = Math.floor(totalSeconds / 3600);
     var minutes = Math.floor(totalSeconds % 3600 / 60);
     totalCalories = Math.floor(totalSteps * APP_CONFIG.oneStepBurnsCal);
 
     document.getElementById("activity-value").innerHTML = hours + "h" + "&nbsp;" + minutes + "min";
-    document.querySelectorAll("#steps-container .action-value")[0].innerHTML = totalSteps.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    document.querySelectorAll("#steps-container .action-value")[0].innerHTML = utilities.getNumberWithCommas(totalSteps);
     document.querySelectorAll("#calories-container .action-value")[0].innerHTML = totalCalories.toString();
 }
 
@@ -126,7 +198,7 @@ function fillDaysContainer() {
         daysContainerElement.appendChild(oneDayContainerElement);
     }
 
-    setWeekAverageActivity(sortedDays);
+    setWeekReview(sortedDays);
 }
 
 function getData(url, successFunction, faultFunction) {
