@@ -52,6 +52,14 @@ var views = {
     }
 }
 
+function showLoader() {
+    document.getElementById("loader").classList.remove("hidden");
+}
+
+function hideLoader() {
+    document.getElementById("loader").classList.add("hidden");
+}
+
 function getCurrentViewName() {
     var viewName = null;
 
@@ -81,6 +89,7 @@ function changeView(view) {
 
         view.isCurrent = true;
         let weekReviewElements = document.getElementsByClassName(view.className);
+
         for (let i = 0; i < weekReviewElements.length; i++) {
             weekReviewElements.item(i).classList.remove("hidden");
         }
@@ -110,35 +119,21 @@ var eventListeners = {
         changeView(views.week);
     },
     goToDayReview: function (e) {
-        //resetSelectedDay();
         console.log("goToDayReview");
         if (e.target) {
-            /*
-            if (e.target.classList.contains("one-day-container")) {
-                console.log("Class name: " + e.target.className);
-                e.target.classList.add("active");
-            }
-            */
             if (e.target.classList.contains("one-day-content")) {
                 var selectedDate = e.target.dataset.date;
-                console.log("Selected date: " + selectedDate);
 
                 if (e.target.classList.contains("active")) {
                     return;
                 } else {
+                    showLoader();
                     resetSelectedDay();
                     e.target.classList.add("active");
-                    //TODO
                     console.log("Class name: " + e.target.className);
                     changeView(views.day);
                     setDayReview(selectedDate);
-                    /*
-                    document.getElementsByClassName("week-review").display = "none";
-                    document.getElementsByClassName("day-review").display = "block";
-                    */
                 }
-
-
             }
         }
     }
@@ -161,6 +156,7 @@ function setDayReview(selectedDate) {
     document.getElementById("day-review-time-value").innerHTML = parseFloat(Math.round(thisDayActiveTime * 100) / 100).toFixed(2);
     document.getElementById("day-review-date").innerHTML = utilities.getFormatedDate(dataStorage[selectedDate].epochDate);
     document.getElementById("day-review-week-day-name").innerHTML = utilities.getDayName(dataStorage[selectedDate].epochDate);
+    hideLoader();
 }
 
 function setWeekReview(sortedDays) {
@@ -180,6 +176,8 @@ function setWeekReview(sortedDays) {
     document.getElementById("activity-value").innerHTML = hours + "h" + "&nbsp;" + minutes + "min";
     document.querySelectorAll("#steps-container .action-value")[0].innerHTML = utilities.getNumberWithCommas(totalSteps);
     document.querySelectorAll("#calories-container .action-value")[0].innerHTML = totalCalories.toString();
+
+    hideLoader();
 }
 
 function fillDaysContainer() {
@@ -250,9 +248,8 @@ function processData(data) {
                 }
             }
         }
-        console.log("Data: " + JSON.stringify(dataStorage, null, 4));
+        // console.log("Data: " + JSON.stringify(dataStorage, null, 4));
     }
-
     fillDaysContainer();
 }
 
@@ -261,6 +258,7 @@ function errorFunction() {
 }
 
 function onPageLoad() {
+    showLoader();
     var url = "https://api.myjson.com/bins/1gwnal";
     initEvents();
     getData(url, processData, errorFunction);

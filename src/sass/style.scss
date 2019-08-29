@@ -1,5 +1,12 @@
+/* Colors */
+$color-background-start: rgba(52, 199, 160, 1);
+$color-background-end: rgba(0, 138, 162, 1);
+$color-white: rgba(255, 255, 255, 1);
 
-
+/* Font Weights */
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 600;
 
 * {
     margin: 0;
@@ -13,12 +20,11 @@ html, body {
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#34c7a0+0,008aa2+100 */
-    background: #34c7a0; /* Old browsers */
-    background: -moz-linear-gradient(152deg,  #34c7a0, #008aa2); /* FF3.6-15 */
-    background: -webkit-linear-gradient(152deg,  #34c7a0, #008aa2); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(152deg,  #34c7a0, #008aa2); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34c7a0', endColorstr='#008aa2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: $color-background-start;
+    background: -moz-linear-gradient(152deg,  $color-background-start, $color-background-end);
+    background: -webkit-linear-gradient(152deg,  $color-background-start, $color-background-end);
+    background: linear-gradient(152deg,  $color-background-start, $color-background-end);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="rgba(52, 199, 160, 1)", endColorstr="rgba(0, 138, 162, 1)",GradientType=1 );
     background-repeat: no-repeat;
 }
 
@@ -31,7 +37,8 @@ body {
 }
 
 #container {
-    max-width: 375px;
+    width: 340px;
+    max-width: 340px;
     margin: auto;
     height: auto;
     padding: 20px;
@@ -56,7 +63,7 @@ body {
 
 #week-review-header {
     max-width: 340px;
-    background-color: #FFFFFF;
+    background-color: $color-white;
     border-radius: 28px;
     padding: 24px 27px;
     padding-right: 0px;
@@ -88,7 +95,7 @@ body {
 }
 
 #day-review-header .header-message {
-    color: rgba(255, 255, 255, 1);
+    color: $color-white;
     font-size: 34px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -117,7 +124,7 @@ body {
 
 .header-back:hover {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: $color-white;
 }
 
 .header-back:hover i {
@@ -156,11 +163,13 @@ body {
 */
 .one-day-container .one-day-content.active {
     color:rgba(0, 182, 163, 1);
-    background-color: rgba(255, 255, 255, 1);
+    background-color: $color-white;
     opacity: 1;
     cursor: default;
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.1)
 }
-
 
 .one-day-container:last-child {
     margin-right: 0px;
@@ -171,7 +180,7 @@ body {
 }
 
 .one-day-content {
-    color: rgba(255, 255, 255, 1);
+    color: $color-white;
     font-size: 16px;
     opacity: 0.7;
     padding: 11px;
@@ -194,7 +203,7 @@ body {
 }
 
 .icon-container {
-    color: white;
+    color: $color-white;
     width: 40px;
     height: 40px;
     background-color: rgba(255,255,255,0.25);
@@ -211,7 +220,7 @@ body {
 
 .action-title {
     font-size: 20px;
-    color: rgb(255, 255, 255);
+    color: $color-white;
     font-weight: 600;
 }
 
@@ -223,7 +232,7 @@ body {
 
 #activity-value {
     font-size: 38px;
-    color: rgb(255, 255, 255);
+    color: $color-white;
     font-weight: bold;
     margin-left: 55px;
     margin-bottom: 26px;
@@ -236,14 +245,14 @@ body {
 
 .action-value {
     font-size: 38px;
-    color: rgb(255, 255, 255);
+    color: $color-white;
     font-weight: bold;
     float: right;
 }
 
 #day-activity-container {
     max-width: 340px;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: $color-white;
     border-radius: 28px 28px 0px 0px;
     padding: 24px 0px 24px 0px;
     width: 340px;
@@ -271,7 +280,7 @@ body {
 }
 
 #day-steps-icon i {
-    color: rgb(255, 255, 255);
+    color: $color-white;
     position: static;
 }
 
@@ -340,3 +349,38 @@ body {
     margin: auto;
     width: 100%;
 }
+
+#loader {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.spinner {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid rgba(0, 138, 162, 1);
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
