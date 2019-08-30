@@ -1,0 +1,53 @@
+$color-one-day-container-background: $color-white-transparent-twenty-five;
+$color-one-day-content: $color-week-header-message;
+$shadow-one-day-content: 0px 3px 9px 0px $color-black-transparent-ten;
+$font-size-one-day-content: 16px;
+
+#days-container {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.one-day-container {
+    display: inline-block;
+    background-color: $color-one-day-container-background;
+    width: 60px;
+    max-width: 60px;
+    height: 60px;
+    border-radius: 23px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+}
+
+.one-day-container:hover {
+    cursor: pointer;
+}
+
+.one-day-container .one-day-content.active {
+    cursor: default;
+    color:$color-one-day-content;
+    background-color: $color-white;
+    opacity: 1;
+    -webkit-box-shadow: $shadow-one-day-content;
+    -moz-box-shadow: $shadow-one-day-content;
+    box-shadow: $shadow-one-day-content;
+}
+
+.one-day-container:last-child {
+    margin-right: 0px;
+}
+
+.one-day-container:first-child {
+    margin-left: 0px;
+}
+
+.one-day-content {
+    color: $color-white;
+    font-size: $font-size-one-day-content;
+    opacity: 0.7;
+    padding: 11px;
+    text-align: center;
+    font-weight: $font-weight-medium;
+    border-radius: 23px;
+}

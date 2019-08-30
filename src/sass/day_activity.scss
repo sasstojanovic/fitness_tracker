@@ -1,0 +1,99 @@
+$color-steps-container-border: $color-week-header-message;
+$color-day-details-value: $color-week-header-message;
+$font-size-day-steps-title: 20px;
+$font-size-day-steps-value: 48px;
+$font-size-day-progress-message: 20px;
+$font-size-day-motivation-message: 40px;
+$font-size-day-details-title: 18px;
+$font-size-day-details-value: 40px;
+
+#day-activity-container {
+    width: 340px;
+    max-width: 340px;
+    border-radius: 28px 28px 0px 0px;
+    padding: 24px 0px 24px 0px;
+    background-color: $color-white;
+}
+
+#day-steps-container {
+    width: 231px;
+    height: 231px;
+    border: 8px solid $color-steps-container-border;
+    box-sizing: border-box;
+    border-radius: 50%;
+    padding: 18px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+#day-steps-wrapper > div {
+    margin: auto;
+    text-align: center;
+}
+
+#day-steps-title {
+    font-size: $font-size-day-steps-title;
+    font-weight: $font-weight-regular;
+    color: $color-day-activity-text;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+#day-steps-value {
+    font-size: $font-size-day-steps-value;
+    font-weight: $font-weight-bold;
+    color: $color-day-activity-text;
+}
+
+#day-review-progress-message {
+    font-size: $font-size-day-progress-message;
+    font-weight: $font-weight-regular;
+    color: $color-day-activity-text;
+    text-align: center;
+}
+
+#day-review-motivation-message {
+    font-size: $font-size-day-motivation-message;
+    font-weight: $font-weight-bold;
+    color: $color-day-activity-text;
+    text-align: center;
+}
+
+#day-review-details {
+    margin-top: 85px;
+}
+
+#day-review-details .day-review-details-wrapper:last-child {
+    border-right: none;
+}
+
+.day-review-details-wrapper {
+    display: inline-block;
+    width: 32%;
+    min-width: 100px;
+    min-height: 75px;
+    border-right: 1px solid $color-day-details-border;
+    position: relative;
+}
+
+.day-review-details-title {
+    font-size: $font-size-day-details-title;
+    font-weight: $font-weight-regular;
+    color: $color-day-details-title;
+    text-align: center;
+}
+
+.day-review-details-value {
+    font-size: $font-size-day-details-value;
+    font-weight: $font-weight-bold;
+    color: $color-day-details-value;
+    text-align: center;
+}
+
+.day-review-details-container {
+    position: absolute;
+    bottom: 0px;
+    margin: auto;
+    width: 100%;
+}

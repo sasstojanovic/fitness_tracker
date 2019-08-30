@@ -1,0 +1,81 @@
+$font-size-header-message: 34px;
+$font-size-header-description: 16px;
+$font-size-header-back-icon: 40px;
+
+%header-shared {
+    width: 313px;
+    max-width: 340px;
+    border-radius: 28px;
+    padding: 24px 27px;
+    padding-right: 0px;
+}
+
+%header-message-shared {
+    font-size: $font-size-header-message;
+    font-weight: $font-weight-bold;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+%header-description-shared {
+    font-size: $font-size-header-description;
+    font-weight: $font-weight-medium;
+    word-wrap: break-word;
+}
+
+#week-review-header {
+    @extend %header-shared;
+    background-color: $color-white;
+}
+
+#day-review-header {
+    @extend %header-shared;
+    background-color: $color-white-transparent-twenty-five;
+}
+
+#week-review-header .header-message {
+    @extend %header-message-shared;
+    color: $color-week-header-message;
+}
+
+#week-review-header .header-description {
+    @extend %header-description-shared;
+    color: $color-week-header-description;
+}
+
+#day-review-header .header-message {
+    @extend %header-message-shared;
+    color: $color-white;
+}
+
+#day-review-header .header-description {
+    @extend %header-description-shared;
+    color: $color-white-transparent-seventy;
+}
+
+#day-review-header > div {
+    display: inline-block;
+}
+
+.header-back {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    top: -10px;
+    left: -15px;
+    border-radius: 50%;
+}
+
+.header-back:hover {
+    cursor: pointer;
+    background-color: $color-white;
+}
+
+.header-back i {
+    font-size: $font-size-header-back-icon;
+    color: $color-white;
+}
+
+.header-back:hover i {
+    color: $color-week-header-message;
+}

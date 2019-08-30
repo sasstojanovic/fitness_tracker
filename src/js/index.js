@@ -26,7 +26,7 @@ var utilities = {
     },
     getDayName: function (epochValue, isShortName) {
         var thisDate = new Date(epochValue);
-        var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         var dayName = weekdays[thisDate.getDay()];
 
         if (isShortName) {

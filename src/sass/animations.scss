@@ -1,0 +1,37 @@
+%animation-hide-view-shared {
+    animation-name: hideView;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hideView {
+    from { opacity: 1; }
+    to   { opacity: 0; display: none;}
+}
+
+%animation-show-view-shared {
+    animation-name: showView;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes showView {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+%animation-loader-spin-shared {
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+    
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

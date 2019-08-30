@@ -1,0 +1,50 @@
+$action-panel-background-color: $color-white-transparent-twenty-five;
+$color-action-description: $color-white-transparent-seventy;
+$font-size-action-title: 20px;
+$font-size-action-description: 16px;
+$font-size-action-value: 38px;
+
+.action-panel {
+    width: 300px;
+    max-width: 340px;
+    background-color: $action-panel-background-color;
+    border-radius: 28px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.action-info > div {
+    display: inline-block;
+}
+
+.action-title {
+    font-size: $font-size-action-title;
+    color: $color-white;
+    font-weight: $font-weight-medium;
+}
+
+.action-description {
+    font-size: $font-size-action-description;
+    color: $color-action-description;
+    font-weight: $font-weight-medium;
+}
+
+#activity-value {
+    font-size: $font-size-action-value;
+    color: $color-white;
+    font-weight: $font-weight-bold;
+    margin-left: 55px;
+    margin-bottom: 26px;
+    margin-top: 26px;
+}
+
+#steps-container .action-info, #calories-container .action-info {
+    display: inline-block;
+}
+
+.action-value {
+    font-size: $font-size-action-value;
+    color: $color-white;
+    font-weight: $font-weight-bold;
+    float: right;
+}

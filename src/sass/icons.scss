@@ -1,0 +1,26 @@
+$icon-container-background-color: $color-white-transparent-twenty-five;
+
+.icon-container {
+    position: relative;
+    top: 3px;
+    color: $color-white;
+    width: 40px;
+    height: 40px;
+    background-color: $icon-container-background-color;
+    border-radius: 23px;
+    margin-right: 15px;
+}
+
+.icon-container > i {
+    padding: 8px;
+    position: absolute;
+}
+
+#day-steps-icon {
+    background-color: $color-day-view-icon-background;
+}
+
+#day-steps-icon i {
+    color: $color-white;
+    position: static;
+}

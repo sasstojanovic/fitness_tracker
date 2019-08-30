@@ -1,0 +1,26 @@
+$color-loader-background: $color-black-transparent-seventy;
+$color-spiner-background: $color-white;
+$color-spiner: $color-background-start;
+
+#loader {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: $color-loader-background;
+}
+
+.spinner {
+  @extend %animation-loader-spin-shared;
+  border: 10px solid $color-spiner-background;
+  border-radius: 50%;
+  border-top: 10px solid $color-spiner;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+}
